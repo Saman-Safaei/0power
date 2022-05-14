@@ -1,13 +1,13 @@
 <template>
   <div class="home-view">
-    <server-box/>
+    <bio-box/>
   </div>
   <icons />
 </template>
 
 <script setup>
 import Icons from "@/components/Icons.vue";
-import ServerBox from "@/components/ServerBox.vue";
+import BioBox from "@/components/BioBox.vue";
 
 </script>
 
