@@ -25,6 +25,8 @@ const currentTab = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables";
+
 .layout {
   display: flex;
   flex-direction: row;
@@ -36,7 +38,7 @@ const currentTab = computed(() => {
     align-self: flex-end;
     display: none;
 
-    @media screen and (min-width: 850px) {
+    @media screen and (min-width: $md) {
       display: block;
     }
 
@@ -58,13 +60,17 @@ const currentTab = computed(() => {
   }
 }
 
-.faded-enter-from,
+.faded-enter-from {
+  opacity: 0;
+  transform: translateX(-100vw);
+}
 .faded-leave-to {
   opacity: 0;
+  transform: translateX(100vw);
 }
 
 .faded-enter-active,
 .faded-leave-active {
-  transition: all 300ms ease;
+  transition: all 500ms ease;
 }
 </style>

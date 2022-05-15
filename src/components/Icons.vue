@@ -41,6 +41,8 @@ function iconClicked(num) {
 
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables";
+
 .icons {
   display: flex;
   flex-direction: row;
@@ -50,7 +52,7 @@ function iconClicked(num) {
   justify-content: center;
   margin-top: 2rem;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: $md) {
     gap: 0.8rem;
   }
 

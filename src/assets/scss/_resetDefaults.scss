@@ -27,9 +27,21 @@ body {
 
 html {
   background: #f3f3f3;
-
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: none;
+  }
 }

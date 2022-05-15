@@ -20,7 +20,8 @@
       <tag>⌨️ Programmer</tag>
       <tag>💫 Roro Lover</tag>
     </div>
-    <button @click="toggle">Server Box</button>
+    <button class="bio-box__toggle" @click="toggle"><img class="bio-box__toggle-img"
+        src="/imgs/serverboxbtn.png"></button>
   </div>
 </template>
 
@@ -35,12 +36,14 @@ function toggle() {
 }
 </script>
 
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
+@import "@/assets/scss/variables";
+
 .bio-box {
-  background: rgba(0, 0, 0, 0.5);
+  background: $boxes-color;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 300px;
+  width: $boxes-width;
   color: white;
   position: relative;
 
@@ -82,6 +85,17 @@ function toggle() {
     justify-content: center;
     margin: 1rem 0;
     gap: 0.3rem;
+  }
+
+  .bio-box__toggle {
+    position: absolute;
+    left: 100%;
+    top: 2rem;
+
+    .bio-box__toggle-img {
+      opacity: 0.5;
+      width: 30px;
+    }
   }
 }
 </style>
