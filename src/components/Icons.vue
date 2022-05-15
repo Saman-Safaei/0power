@@ -1,16 +1,16 @@
 <template>
   <ul class="icons">
-    <li class="icons__icon"><img src="/imgs/discord.svg" alt="" @click="iconClicked(0)" @click.middle="iconClicked(0)"/></li>
+    <li class="icons__icon"><img src="/imgs/discord.svg" @click="iconClicked(0)" @click.middle="iconClicked(0)"/></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/github.svg" alt=""  @click="iconClicked(1)" @click.middle="iconClicked(1)"/></li>
+    <li class="icons__icon"><img src="/imgs/github.svg"  @click="iconClicked(1)" @click.middle="iconClicked(1)"/></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/instagram.svg" alt=""  @click="iconClicked(2)" @click.middle="iconClicked(2)"/></li>
+    <li class="icons__icon"><img src="/imgs/instagram.svg"  @click="iconClicked(2)" @click.middle="iconClicked(2)"/></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/spotify.svg" alt=""  @click="iconClicked(3)" @click.middle="iconClicked(3)"/></li>
+    <li class="icons__icon"><img src="/imgs/spotify.svg"  @click="iconClicked(3)" @click.middle="iconClicked(3)"/></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/steam.svg" alt=""  @click="iconClicked(4)" @click.middle="iconClicked(4)"/></li>
+    <li class="icons__icon"><img src="/imgs/steam.svg"  @click="iconClicked(4)" @click.middle="iconClicked(4)"/></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/telegram.svg" alt=""  @click="iconClicked(5)" @click.middle="iconClicked(5)"/></li>
+    <li class="icons__icon"><img src="/imgs/telegram.svg"  @click="iconClicked(5)" @click.middle="iconClicked(5)"/></li>
   </ul>
 </template>
 
