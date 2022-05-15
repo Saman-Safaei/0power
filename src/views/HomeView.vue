@@ -2,7 +2,9 @@
   <div class="layout">
     <div class="layout__img"><img src="/Logo.jpg" alt="" class="logo" /></div>
     <div class="layout__box">
-      <component :is="currentTab" />
+      <Transition name="faded" mode="out-in">
+        <component :is="currentTab" />
+      </Transition>
       <icons />
     </div>
   </div>
@@ -12,11 +14,13 @@
 import Icons from "@/components/Icons.vue";
 import BioBox from "@/components/BioBox.vue";
 import ServerBox from "@/components/ServerBox.vue";
-import { reactive, ref, computed } from "vue";
+import { computed } from "vue";
+import { mainStore } from "@/pinia/main";
 
-const showBio = ref(false);
+const store = mainStore();
+
 const currentTab = computed(() => {
-  return (showBio) ? BioBox : ServerBox;
+  return (store.showBio) ? BioBox : ServerBox;
 });
 </script>
 
@@ -52,5 +56,15 @@ const currentTab = computed(() => {
       min-height: 80vh;
     }
   }
+}
+
+.faded-enter-from,
+.faded-leave-to {
+  opacity: 0;
+}
+
+.faded-enter-active,
+.faded-leave-active {
+  transition: all 300ms ease;
 }
 </style>
