@@ -1,5 +1,5 @@
 <template>
-    <div class="background"><img src="/Logo.jpg" alt="" class="logo"></div>
+<p></p>
 </template>
 
 <style lang="scss" scoped>
@@ -9,7 +9,6 @@
     justify-content: flex-end;
     align-items: flex-start;
     position: fixed;
-    background: #f3f3f3;
     top: 0;
     bottom: 0;
     left: 0;
