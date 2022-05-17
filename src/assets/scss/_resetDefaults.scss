@@ -42,7 +42,12 @@ button {
   &:focus {
     outline: none;
   }
+
   &:focus-visible {
     outline: none;
   }
+}
+
+img {
+  display: block;
 }
