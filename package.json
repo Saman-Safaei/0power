@@ -2,7 +2,7 @@
   "name": "0power-dev",
   "version": "0.0.0",
   "scripts": {
-    "serve": "vite",
+    "serve": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 5050"
   },
