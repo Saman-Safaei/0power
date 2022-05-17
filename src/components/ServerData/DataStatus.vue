@@ -21,7 +21,7 @@ const props = defineProps(["title", "data"]);
 
   .data__value {
     background: rgba(255, 255, 255, 0.4);
-    padding: 0.2rem;
+    padding: 0.3rem;
     border-radius: 0.3rem;
   }
 }
