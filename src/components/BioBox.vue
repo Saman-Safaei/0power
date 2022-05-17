@@ -43,9 +43,13 @@ function toggle() {
   background: $boxes-color;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: $boxes-width;
+  width: 250px;
   color: white;
   position: relative;
+
+  @media screen and (min-width: $md) {
+    width: $boxes-width;
+  }
 
   .bio-box__pfp {
     display: block;

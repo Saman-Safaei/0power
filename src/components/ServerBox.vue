@@ -55,11 +55,16 @@ function toggle() {
 
 .server-box {
   background: $boxes-color;
-  width: $boxes-width;
+  width: 250px;
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
   margin: 0.8rem 0;
+
+  
+  @media screen and (min-width: $md) {
+    width: $boxes-width;
+  }
 
   .server-box__toggle {
     position: absolute;
