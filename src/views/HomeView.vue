@@ -37,6 +37,7 @@ const currentTab = computed(() => {
     height: 70vh;
     align-self: flex-end;
     display: none;
+    z-index: -2;
 
     @media screen and (min-width: $md) {
       display: block;
