@@ -3,6 +3,9 @@
     <button @click="toggle" class="server-box__toggle"><img src="/imgs/bioboxbtn.png"
         class="server-box__toggle-img"></button>
 
+    <data-status title="Total Online" :data="dummyData.TotalOnline" />
+    <data-status title="Server 1" :data="dummyData.Server1" />
+    <data-status title="Server 2" :data="dummyData.Server2" />
     <h3 class="server-box__ptitle">Ports</h3>
     <drop-down title="Ports 1" :data="dummyData.Ports1" :is-open="dropdowns.ports1" @toggle="onDropdownToggle('ports1')" />
     <drop-down title="Ports 2" :data="dummyData.Ports2" :is-open="dropdowns.ports2" @toggle="onDropdownToggle('ports2')" />
@@ -14,6 +17,7 @@
 import { mainStore } from '@/pinia/main';
 import { reactive } from 'vue';
 import DropDown from "@/components/ServerData/DropDown.vue";
+import DataStatus from "@/components/ServerData/DataStatus.vue";
 
 // For Test purposes
 const dummyData = reactive({
