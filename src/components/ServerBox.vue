@@ -79,6 +79,7 @@ function toggle() {
   }
 
   .server-box__ptitle {
+    font-family: sans-serif;
     position: relative;
     text-align: center;
     color: rgb(40, 40, 40);
