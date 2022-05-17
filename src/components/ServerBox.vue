@@ -2,31 +2,46 @@
   <div class="server-box">
     <button @click="toggle" class="server-box__toggle"><img src="/imgs/bioboxbtn.png"
         class="server-box__toggle-img"></button>
-
-    <data-status title="Total Online" :data="dummyData.TotalOnline" />
-    <data-status title="Server 1" :data="dummyData.Server1" />
-    <data-status title="Server 2" :data="dummyData.Server2" />
-    <h3 class="server-box__ptitle">Ports</h3>
-    <drop-down title="Ports 1" :data="dummyData.Ports1" :is-open="dropdowns.ports1" @toggle="onDropdownToggle('ports1')" />
-    <drop-down title="Ports 2" :data="dummyData.Ports2" :is-open="dropdowns.ports2" @toggle="onDropdownToggle('ports2')" />
+    <template v-if="loaded && !error">
+      <data-status title="Total Online" :data="data.TotalOnline" />
+      <data-status title="Server 1" :data="data.Server1" />
+      <data-status title="Server 2" :data="data.Server2" />
+      <h3 class="server-box__ptitle">Ports</h3>
+      <drop-down title="Ports 1" :data="data.Ports1" :is-open="dropdowns.ports1" @toggle="onDropdownToggle('ports1')" />
+      <drop-down title="Ports 2" :data="data.Ports2" :is-open="dropdowns.ports2" @toggle="onDropdownToggle('ports2')" />
+    </template>
+    <template v-if="!loaded">
+      <p class="server-box__loading">Loading ...</p>
+    </template>
+    <template v-if="loaded && error">
+      <p class="server-box__error">An Error Occured !</p>
+    </template>
   </div>
 </template>
 
 <script setup>
 // Imports
 import { mainStore } from '@/stores/main';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import DropDown from "@/components/ServerData/DropDown.vue";
 import DataStatus from "@/components/ServerData/DataStatus.vue";
+import api from "@/utils/api.js";
 
 // For Test purposes
-const dummyData = reactive({
-  TotalOnline: 69,
-  Server1: 32,
-  Server2: 37,
-  Ports1: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865],
-  Ports2: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865]
-});
+const data = reactive({});
+const loaded = ref(false);
+const error = ref(false);
+
+api.get("/status")
+  .then(res => {
+    for (let key in res.data)
+      data[key] = res.data[key];
+    loaded.value = true;
+  })
+  .catch(err => {
+    loaded.value = true;
+    error.value = true;
+  })
 
 // DropDown Setups
 const dropdowns = reactive({
@@ -35,8 +50,8 @@ const dropdowns = reactive({
 });
 
 function onDropdownToggle(name) {
-  for(let key in dropdowns) 
-    if(dropdowns[name] !== dropdowns[key]) 
+  for (let key in dropdowns)
+    if (dropdowns[name] !== dropdowns[key])
       dropdowns[key] = false;
 
   dropdowns[name] = !dropdowns[name];
@@ -61,7 +76,7 @@ function toggle() {
   position: relative;
   margin: 0.8rem 0;
 
-  
+
   @media screen and (min-width: $md) {
     width: $boxes-width;
   }
@@ -104,6 +119,18 @@ function toggle() {
       background: rgb(40, 40, 40);
       border-radius: 2px;
     }
+  }
+
+  .server-box__loading {
+    text-align: center;
+    height: 200px;
+    font-family: sans-serif;
+  }
+
+  .server-box__error {
+    text-align: center;
+    font-family: sans-serif;
+    height: 200px;
   }
 
 }
