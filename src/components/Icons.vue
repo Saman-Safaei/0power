@@ -51,7 +51,7 @@ function iconClicked(num) {
   align-items: center;
   gap: 0.4rem;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2rem 0;
 
   @media screen and (min-width: $md) {
     gap: 0.5rem;
