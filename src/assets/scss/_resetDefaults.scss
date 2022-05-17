@@ -22,17 +22,18 @@ p {
 
 
 body {
+  background: url("/imgs/mbg2.jpg") no-repeat center/cover fixed, #e4e4e4;
   margin: 0;
-}
-
-html {
-  background: url("/imgs/mbg2.jpg") no-repeat center/cover;
-  overflow-x: hidden;
-  user-select: none;
+  min-height: 100vh;
 
   @media screen and (min-width: $md) {
     background: #f3f3f3;
   }
+}
+
+html {
+  overflow-x: hidden;
+  user-select: none;
 }
 
 * {
