@@ -43,9 +43,10 @@ function toggle() {
   background: $boxes-color;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 250px;
+  width: 76%;
   color: white;
   position: relative;
+  max-width: $boxes-width;
 
   @media screen and (min-width: $md) {
     width: $boxes-width;

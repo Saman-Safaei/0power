@@ -2,7 +2,7 @@
   <div class="server-box">
     <button @click="toggle" class="server-box__toggle"><img src="/imgs/bioboxbtn.png"
         class="server-box__toggle-img"></button>
-    <template v-if="loaded && !error">
+    <template v-if="loaded">
       <data-status title="Total Online" :data="data.TotalOnline" />
       <data-status title="Server 1" :data="data.Server1" />
       <data-status title="Server 2" :data="data.Server2" />
@@ -10,11 +10,10 @@
       <drop-down title="Ports 1" :data="data.Ports1" :is-open="dropdowns.ports1" @toggle="onDropdownToggle('ports1')" />
       <drop-down title="Ports 2" :data="data.Ports2" :is-open="dropdowns.ports2" @toggle="onDropdownToggle('ports2')" />
     </template>
-    <template v-if="!loaded">
-      <p class="server-box__loading">Loading ...</p>
-    </template>
-    <template v-if="loaded && error">
-      <p class="server-box__error">An Error Occured !</p>
+    <template v-else>
+      <div class="server-box__message-box">
+        <p class="message-box__message">{{ message }}</p>
+      </div>
     </template>
   </div>
 </template>
@@ -30,7 +29,7 @@ import api from "@/utils/api.js";
 // For Test purposes
 const data = reactive({});
 const loaded = ref(false);
-const error = ref(false);
+const message = ref("Loading ...");
 
 api.get("/status")
   .then(res => {
@@ -39,9 +38,8 @@ api.get("/status")
     loaded.value = true;
   })
   .catch(err => {
-    loaded.value = true;
-    error.value = true;
-  })
+    message.value = "An Error Occured !";
+  });
 
 // DropDown Setups
 const dropdowns = reactive({
@@ -70,11 +68,12 @@ function toggle() {
 
 .server-box {
   background: $boxes-color;
-  width: 250px;
+  width: 76%;
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
   margin: 0.8rem 0;
+  max-width: $boxes-width;
 
 
   @media screen and (min-width: $md) {
@@ -102,36 +101,46 @@ function toggle() {
     &::after {
       content: "";
       position: absolute;
-      width: 35%;
+      width: 30%;
       height: 2px;
       top: 50%;
       left: 8px;
       background: rgb(40, 40, 40);
       border-radius: 2px;
+
+      @media screen and (min-width: $md) {
+        width: 35%;
+      }
     }
 
     &::before {
       content: "";
       position: absolute;
-      width: 35%;
+      width: 30%;
       height: 2px;
       top: 50%;
       right: 8px;
       background: rgb(40, 40, 40);
       border-radius: 2px;
+
+      @media screen and (min-width: $md) {
+        width: 35%;
+      }
     }
   }
 
-  .server-box__loading {
-    text-align: center;
+  .server-box__message-box {
     height: 200px;
-    font-family: sans-serif;
-  }
-
-  .server-box__error {
-    text-align: center;
-    font-family: sans-serif;
-    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .message-box__message {
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: rgb(40, 40, 40);
+    }
   }
 
 }
