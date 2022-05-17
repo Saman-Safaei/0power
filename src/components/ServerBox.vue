@@ -4,26 +4,42 @@
         class="server-box__toggle-img"></button>
 
     <h3 class="server-box__ptitle">Ports</h3>
-    <drop-down title="Ports 1" :data="dummyData.Ports1"/>
-    <drop-down title="Ports 2" :data="dummyData.Ports2"/>
+    <drop-down title="Ports 1" :data="dummyData.Ports1" :is-open="dropdowns.ports1" @toggle="onDropdownToggle('ports1')" />
+    <drop-down title="Ports 2" :data="dummyData.Ports2" :is-open="dropdowns.ports2" @toggle="onDropdownToggle('ports2')" />
   </div>
 </template>
 
 <script setup>
+// Imports
 import { mainStore } from '@/pinia/main';
 import { reactive } from 'vue';
 import DropDown from "@/components/ServerData/DropDown.vue";
 
-const store = mainStore();
+// For Test purposes
+const dummyData = reactive({
+  TotalOnline: 69,
+  Server1: 32,
+  Server2: 37,
+  Ports1: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865],
+  Ports2: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865]
+});
 
-const dummyData = reactive(
-  {
-    TotalOnline: 69,
-    Server1: 32,
-    Server2: 37,
-    Ports1: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865],
-    Ports2: [27015, 27016, 27018, 27021, 28164, 28165, 28173, 28477, 28500, 28502, 28517, 28582, 28585, 28623, 28652, 28667, 28675, 28708, 28738, 28752, 28787, 28810, 28811, 28812, 28823, 28833, 28846, 28854, 28856, 28865]
-  });
+// DropDown Setups
+const dropdowns = reactive({
+  ports1: false,
+  ports2: false,
+});
+
+function onDropdownToggle(name) {
+  for(let key in dropdowns) 
+    if(dropdowns[name] !== dropdowns[key]) 
+      dropdowns[key] = false;
+
+  dropdowns[name] = !dropdowns[name];
+}
+
+// Stores
+const store = mainStore();
 
 function toggle() {
   store.toggleShowBio();
@@ -68,6 +84,7 @@ function toggle() {
       background: rgb(40, 40, 40);
       border-radius: 2px;
     }
+
     &::before {
       content: "";
       position: absolute;
