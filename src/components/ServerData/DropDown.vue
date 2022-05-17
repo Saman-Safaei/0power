@@ -1,7 +1,11 @@
 <template>
   <div class="dropdown-container">
-    <div class="dropdown"><span>{{ props.title }}</span> <button @click="toggleOpen" :style="arrow"
-        style="transition: transform 300ms;">&#10148;</button></div>
+
+    <div class="dropdown">
+      <span>{{ props.title }}</span>
+      <button @click="emits('toggle')" :style="arrow" style="transition: transform 300ms;">&#10148;</button>
+    </div>
+
     <Transition name="content">
       <div class="dropdown__content" v-if="isOpen">
         <div class="content__row" v-for="(value, index) in data" :key="value">
@@ -18,16 +22,13 @@ import { ref, computed, reactive } from 'vue';
 const props = defineProps({
   data: Array,
   title: String,
+  isOpen: Boolean
 });
 
-const isOpen = ref(false);
-
-function toggleOpen() {
-  isOpen.value = !isOpen.value;
-}
+const emits = defineEmits(["toggle"]);
 
 const arrow = computed(() => {
-  return (isOpen.value) ? { transform: "rotateZ(90deg)" } : {};
+  return (props.isOpen) ? { transform: "rotateZ(90deg)" } : {};
 });
 </script>
 
