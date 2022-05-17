@@ -26,9 +26,13 @@ body {
 }
 
 html {
-  background: #f3f3f3;
+  background: url("/imgs/mbg2.jpg") no-repeat center/cover;
   overflow-x: hidden;
   user-select: none;
+
+  @media screen and (min-width: $md) {
+    background: #f3f3f3;
+  }
 }
 
 * {
