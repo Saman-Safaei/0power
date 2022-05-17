@@ -1,6 +1,15 @@
-# 0power-dev
+<p align="center">
+ <img width="100px" src="https://cdn.discordapp.com/attachments/958123626106851368/976161605215715338/download.jpg" align="center" alt="GitHub Readme Stats" />
+ <h2 align="center">'Zer0Power Web Ui Template</h2>
+ <p align="center">This template should help get you started developing with Vue 3 in Vite.</p>
+</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+## Preview
+<p align="center">
+<img src="https://cdn.discordapp.com/attachments/958123626106851368/976162121777827871/unknown.png">
+  <img src="https://cdn.discordapp.com/attachments/958123626106851368/976162363730456576/unknown.png">
+  <i align="center">hih *-*</i>
+</p>
 
 ## Recommended IDE Setup
 
@@ -27,3 +36,8 @@ npm run serve
 ```sh
 npm run build
 ```
+
+<h2>Repo Stat</h2>
+<p align="center"><br>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=SamuelSam-dev&repo=0power&theme=graywhite">
+</p>
