@@ -11,6 +11,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  mode: "development",
   base: (process.env.NODE_ENV === "production") ? "/0power" : "/"
 })
