@@ -60,6 +60,7 @@ const arrow = computed(() => {
   padding: 0.5rem;
   border-radius: 0.5rem;
   z-index: 1;
+  backdrop-filter: blur(3px);
 
   .content__row {
     display: flex;
