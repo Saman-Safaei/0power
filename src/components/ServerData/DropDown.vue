@@ -49,7 +49,7 @@ const arrow = computed(() => {
 }
 
 .dropdown__content {
-  background: rgba(187, 187, 187, 0.8);
+  background: rgba(187, 187, 187, 0.85);
   position: absolute;
   left: 0;
   right: 0;
@@ -60,7 +60,19 @@ const arrow = computed(() => {
   padding: 0.5rem;
   border-radius: 0.5rem;
   z-index: 1;
-  backdrop-filter: blur(3px);
+
+  &::after {
+    content: "";
+    width: 1rem;
+    height: 0.8rem;
+    background: rgba(187, 187, 187, 0.85);
+    position: absolute;
+    right: 50%;
+    bottom: 100%;
+    transform: translateX(50%) translateY(0.1px);
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+
+  }
 
   .content__row {
     display: flex;
