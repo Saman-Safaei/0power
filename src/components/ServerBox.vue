@@ -74,6 +74,7 @@ function toggle() {
   position: relative;
   margin: 0.8rem 0;
   max-width: $boxes-width;
+  backdrop-filter: blur(0.8rem);
 
 
   @media screen and (min-width: $md) {
