@@ -26,19 +26,31 @@ import DropDown from "@/components/ServerData/DropDown.vue";
 import DataStatus from "@/components/ServerData/DataStatus.vue";
 import api from "@/utils/api.js";
 
-// For Test purposes
+// Fetch Data From Server
+    // initial object
 const data = reactive({});
+    // initial state
 const loaded = ref(false);
+    // initial message
 const message = ref("Loading ...");
+    // try to fetch data from the server and add keys and values to 'data'
+async function fetchData(target, fnApi, fnLoaded, fnMessage) {
+  try {
+    const response = await fnApi.get("/status");
+    Object.assign(target, response.data);
+    fnLoaded.value = true;
+  } catch (error) {
+    fnMessage.value = "An Error Occured !";
+    fnLoaded.value = false;
+  }
 
-api.get("/status")
-  .then(res => {
-    Object.assign(data, res.data);
-    loaded.value = true;
-  })
-  .catch(err => {
-    message.value = "An Error Occured !";
-  });
+    // for run this function every 4s
+  setTimeout(() => {
+    fetchData(data, api, loaded, message);
+  }, 4000);
+}
+    // call the function for first time
+fetchData(data, api, loaded, message);
 
 // DropDown Setups
 const dropdowns = reactive({
