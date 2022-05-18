@@ -1,17 +1,17 @@
 <template>
   <ul class="icons">
-    <li class="icons__icon"><img src="/imgs/discord.svg" @click="iconClicked(0)" @click.middle="iconClicked(0)" /></li>
+    <li class="icons__icon" @click="iconClicked(0)" @click.middle="iconClicked(0)"><img src="/imgs/discord.svg" /></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/github.svg" @click="iconClicked(1)" @click.middle="iconClicked(1)" /></li>
+    <li class="icons__icon" @click="iconClicked(1)" @click.middle="iconClicked(1)"><img src="/imgs/github.svg" /></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/instagram.svg" @click="iconClicked(2)" @click.middle="iconClicked(2)" />
+    <li class="icons__icon" @click="iconClicked(2)" @click.middle="iconClicked(2)"><img src="/imgs/instagram.svg" />
     </li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/spotify.svg" @click="iconClicked(3)" @click.middle="iconClicked(3)" /></li>
+    <li class="icons__icon" @click="iconClicked(3)" @click.middle="iconClicked(3)"><img src="/imgs/spotify.svg" /></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/steam.svg" @click="iconClicked(4)" @click.middle="iconClicked(4)" /></li>
+    <li class="icons__icon" @click="iconClicked(4)" @click.middle="iconClicked(4)"><img src="/imgs/steam.svg" /></li>
     <li class="icons__dot">●</li>
-    <li class="icons__icon"><img src="/imgs/telegram.svg" @click="iconClicked(5)" @click.middle="iconClicked(5)" /></li>
+    <li class="icons__icon" @click="iconClicked(5)" @click.middle="iconClicked(5)"><img src="/imgs/telegram.svg" /></li>
   </ul>
 </template>
 
