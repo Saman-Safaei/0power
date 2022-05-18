@@ -61,6 +61,7 @@ function iconClicked(num) {
     aspect-ratio: 1;
     height: 40px;
     cursor: pointer;
+    position: relative;
 
     @media screen and (min-width: $md) {
       height: 50px;
@@ -70,6 +71,13 @@ function iconClicked(num) {
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 0 0;
+      z-index: 1;
     }
   }
 
