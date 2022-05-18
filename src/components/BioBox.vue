@@ -99,6 +99,13 @@ function toggle() {
     left: 100%;
     top: 2rem;
 
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 0;
+      z-index: 1;
+    }
+
     .bio-box__toggle-img {
       opacity: 0.5;
       width: 30px;

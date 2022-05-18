@@ -86,6 +86,13 @@ function toggle() {
     top: 2rem;
     left: 100%;
 
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 0;
+      z-index: 1;
+    }
+
     .server-box__toggle-img {
       opacity: 0.5;
       width: 30px;
