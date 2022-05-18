@@ -33,8 +33,7 @@ const message = ref("Loading ...");
 
 api.get("/status")
   .then(res => {
-    for (let key in res.data)
-      data[key] = res.data[key];
+    Object.assign(data, res.data);
     loaded.value = true;
   })
   .catch(err => {
