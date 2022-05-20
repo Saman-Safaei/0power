@@ -74,7 +74,7 @@ function iconClicked(num) {
     height: 40px;
     cursor: pointer;
     position: relative;
-    animation: bounce infinite 3.5s ease-in-out;
+    animation: bounce infinite 4s ease-in-out;
 
     @media screen and (min-width: $md) {
       height: 50px;
@@ -115,10 +115,10 @@ function iconClicked(num) {
   }
 
   .icons__dot {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 
     @media screen and (min-width: $md) {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 }
