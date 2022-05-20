@@ -1,17 +1,30 @@
 <template>
   <ul class="icons">
-    <li class="icons__icon icon1" @click="iconClicked(0)" @click.middle="iconClicked(0)"><img src="/imgs/discord.svg" /></li>
-    <li class="icons__dot">●</li>
-    <li class="icons__icon icon2" @click="iconClicked(1)" @click.middle="iconClicked(1)"><img src="/imgs/github.svg" /></li>
-    <li class="icons__dot">●</li>
-    <li class="icons__icon icon3" @click="iconClicked(2)" @click.middle="iconClicked(2)"><img src="/imgs/instagram.svg" />
+
+    <li class="icons__icon icon1" @click="iconClicked(0)" @click.middle="iconClicked(0)">
+      <img src="/imgs/discord.svg" />
     </li>
-    <li class="icons__dot">●</li>
-    <li class="icons__icon icon4" @click="iconClicked(3)" @click.middle="iconClicked(3)"><img src="/imgs/spotify.svg" /></li>
-    <li class="icons__dot">●</li>
-    <li class="icons__icon icon5" @click="iconClicked(4)" @click.middle="iconClicked(4)"><img src="/imgs/steam.svg" /></li>
-    <li class="icons__dot">●</li>
-    <li class="icons__icon icon6" @click="iconClicked(5)" @click.middle="iconClicked(5)"><img src="/imgs/telegram.svg" /></li>
+
+    <li class="icons__icon icon2" @click="iconClicked(1)" @click.middle="iconClicked(1)">
+      <img src="/imgs/github.svg" />
+    </li>
+
+    <li class="icons__icon icon3" @click="iconClicked(2)" @click.middle="iconClicked(2)">
+      <img src="/imgs/instagram.svg" />
+    </li>
+
+    <li class="icons__icon icon4" @click="iconClicked(3)" @click.middle="iconClicked(3)">
+      <img src="/imgs/spotify.svg" />
+    </li>
+
+    <li class="icons__icon icon5" @click="iconClicked(4)" @click.middle="iconClicked(4)">
+      <img src="/imgs/steam.svg" />
+    </li>
+
+    <li class="icons__icon icon6" @click="iconClicked(5)" @click.middle="iconClicked(5)">
+      <img src="/imgs/telegram.svg" />
+    </li>
+    
   </ul>
 </template>
 
@@ -48,9 +61,11 @@ function iconClicked(num) {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-1rem);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -96,18 +111,23 @@ function iconClicked(num) {
     &.icon1 {
       animation-delay: 500ms;
     }
+
     &.icon2 {
       animation-delay: 1000ms;
     }
+
     &.icon3 {
       animation-delay: 1500ms;
     }
+
     &.icon4 {
       animation-delay: 2000ms;
     }
+
     &.icon5 {
       animation-delay: 2500ms;
     }
+
     &.icon6 {
       animation-delay: 3000ms;
     }
