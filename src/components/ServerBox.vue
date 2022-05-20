@@ -18,15 +18,18 @@
   </div>
 </template>
 
+<!-- -------------------------------------------------------------- -->
+
 <script setup>
-// Imports
+// Imports --------------------------------------|
 import { mainStore } from '@/stores/main';
 import { reactive, ref } from 'vue';
 import DropDown from "@/components/ServerData/DropDown.vue";
 import DataStatus from "@/components/ServerData/DataStatus.vue";
 import api from "@/utils/api.js";
 
-// Fetch Data From Server
+// Fetch Data From Server -----------------------|
+
     // initial object
 const data = reactive({});
     // initial state
@@ -52,7 +55,7 @@ async function fetchData(target, fnApi, fnLoaded, fnMessage) {
     // call the function for first time
 fetchData(data, api, loaded, message);
 
-// DropDown Setups
+// DropDown Setups ------------------------------|
 const dropdowns = reactive({
   ports1: false,
   ports2: false,
@@ -66,14 +69,14 @@ function onDropdownToggle(name) {
   dropdowns[name] = !dropdowns[name];
 }
 
-// Stores
+// Stores ---------------------------------------|
 const store = mainStore();
 
 function toggle() {
   store.toggleShowBio();
 }
 </script>
-
+<!-- -------------------------------------------------------------- -->
 <style lang="scss" scoped>
 @import "@/assets/scss/variables";
 
