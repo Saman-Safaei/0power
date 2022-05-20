@@ -24,7 +24,7 @@
     <li class="icons__icon icon6" @click="iconClicked(5)" @click.middle="iconClicked(5)">
       <img src="/imgs/telegram.svg" />
     </li>
-    
+
   </ul>
 </template>
 
@@ -76,7 +76,8 @@ function iconClicked(num) {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem;
+  column-gap: 0.4rem;
+  row-gap: 1rem;
   justify-content: center;
   margin: 2rem 0;
 
@@ -85,13 +86,14 @@ function iconClicked(num) {
   }
 
   .icons__icon {
-    aspect-ratio: 1;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     position: relative;
     animation: bounce infinite 4s ease-in-out;
 
     @media screen and (min-width: $md) {
+      width: 50px;
       height: 50px;
     }
 
