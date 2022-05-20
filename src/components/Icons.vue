@@ -90,7 +90,7 @@ function iconClicked(num) {
     height: 45px;
     cursor: pointer;
     position: relative;
-    animation: bounce infinite 4s ease-in-out;
+    animation: bounce infinite 6s ease-in-out;
 
     @media screen and (min-width: $md) {
       width: 50px;
